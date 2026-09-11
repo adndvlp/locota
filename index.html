@@ -161,7 +161,7 @@
 </script><script id="generated-script">
 
   // --- FileUploadResponseComponent endpoint (Firebase Cloud Function) ---
-  window.JSPSYCH_FILE_UPLOAD_ENDPOINT = 'undefined'.replace('/apiData', '/uploadParticipantFile');
+  window.JSPSYCH_FILE_UPLOAD_ENDPOINT = 'https://us-central1-test-e4cf9.cloudfunctions.net/apiData'.replace('/apiData', '/uploadParticipantFile');
   window.JSPSYCH_EXPERIMENT_ID = '778d662f-d2ba-45f2-b580-cb85f7990f9f';
 
   // --- IndexedDB Wrapper para Batching con TTL (3 días) ---
@@ -927,7 +927,7 @@ const cWe = observeJumpReload;
   async function createSession() {
     try {
       const _preSessionName = !_sessionNameHasDynamic() ? _generateSessionName(null) : null;
-      const res = await fetch("undefined", {
+      const res = await fetch("https://us-central1-test-e4cf9.cloudfunctions.net/apiData", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "*/*" },
         body: JSON.stringify({
@@ -962,7 +962,7 @@ const cWe = observeJumpReload;
 
   async function _updateSessionName(sessionId, sessionName) {
     try {
-      await fetch("undefined", {
+      await fetch("https://us-central1-test-e4cf9.cloudfunctions.net/apiData", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "updateSessionName", experimentID: "778d662f-d2ba-45f2-b580-cb85f7990f9f", sessionId, sessionName }),
@@ -1338,7 +1338,7 @@ const cWe = observeJumpReload;
         trial_index: `batch_${batchNumber}` // ID único para batch
       };
       
-      const batchPromise = fetch("undefined", {
+      const batchPromise = fetch("https://us-central1-test-e4cf9.cloudfunctions.net/apiData", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "*/*" },
         body: JSON.stringify({
@@ -1396,7 +1396,7 @@ const cWe = observeJumpReload;
       }));
       
       // Enviar trials como JSON - el backend los convertirá a CSV
-      const apiBaseUrl = "undefined".replace('/apiData', '');
+      const apiBaseUrl = "https://us-central1-test-e4cf9.cloudfunctions.net/apiData".replace('/apiData', '');
       return fetch(`${apiBaseUrl}/apiDataComplete`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "*/*" },
@@ -1500,7 +1500,7 @@ const cWe = observeJumpReload;
         } else {
           // --- SIN IndexedDB: Enviar trial por trial a Firestore ---
           try {
-            const response = await fetch("undefined", {
+            const response = await fetch("https://us-central1-test-e4cf9.cloudfunctions.net/apiData", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
